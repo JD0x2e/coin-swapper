@@ -68,7 +68,7 @@ const CoinsTable = () => {
             <LinearProgress style={{ backgroundColor: "#2fe628" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ background: "var(--main)" }}>
+              <TableHead style={{ background: "var(--main)", backgroundRepeat: "no-repeat" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap", "Favourites"].map((head) => (
                     <TableCell
