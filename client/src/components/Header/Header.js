@@ -13,12 +13,10 @@ const StyledButton = styled.button`
   padding: 8px 16px;
   color: #ffffff;
   background: #333;
-  margin-top: 1em;
   font-size: 12px;
   font-weight: 500;
   border-radius: 8px;
   border: none;
-  max-width: 113px;
 `;
 
 export default function Header() {
@@ -32,7 +30,7 @@ export default function Header() {
           </Link>
         </div>
         <div>
-          <ConnectKitButton.Custom>
+          <ConnectKitButton.Custom className="connect-btn">
             {({ isConnected, show, truncatedAddress }) => {
               return <StyledButton onClick={show}>{isConnected ? truncatedAddress : "Connect Wallet"}</StyledButton>;
             }}

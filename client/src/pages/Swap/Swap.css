@@ -10,29 +10,9 @@ select {
   cursor: pointer;
 }
 
-/* input {
-  height: 50px;
-  width: 70%;
-  border-radius: 10px 0 0 10px;
-  border: none;
-  text-align: left;
-  background-color: rgb(33, 33, 33);
-  color: white;
-  padding-left: 15px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 20px;
-} */
-
-button {
-  margin-bottom: 1em;
-}
-
 .swap {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: rgb(27, 27, 27);
   height: 100vh;
