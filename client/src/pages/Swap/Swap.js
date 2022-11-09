@@ -102,6 +102,7 @@ export default function Swap() {
         <div className="swap-content">
           <div className="input-box">
             <input
+              className="input-field"
               onChange={(e) => changeValue(e)}
               value={value / 1e18}
               type="number"
@@ -121,6 +122,7 @@ export default function Swap() {
 
           <div className="output-box">
             <input
+              className="output-field"
               onChange={(e) => changeValue(e)}
               value={!valueExchanged ? "" : (valueExchanged / valueExchangedDecimals).toFixed(3)}
               // disabled={true}
