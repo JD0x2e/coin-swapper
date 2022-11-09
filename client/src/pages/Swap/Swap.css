@@ -32,8 +32,10 @@ button {
 .swap {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  background-color: rgb(27, 27, 27);
+  height: 100vh;
 }
 
 .balance {
