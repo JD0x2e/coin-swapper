@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useAccount, useSendTransaction } from "wagmi";
 import tokensJsonArb from "../../config/tokensArb.json";
+import tokensJson from "../../config/tokens.json";
 import ETHLogo from "../../images/tokenimg/eth.png";
 import "../../components/SwapModal/SwapModal.css";
 import Cog from "../../images/cog-wheel.png";
@@ -112,7 +113,7 @@ export default function Swap() {
               <div className="input-inner-box">
                 <img className="input-logo" src={ETHLogo} alt="Ethereum Logo" />
                 <option className="input-symbol" onChange={(e) => changeToToken(e)} value={fromToken}>
-                  <p>ETH</p>
+                  {tokensJson[0].symbol}
                 </option>
               </div>
             </button>
