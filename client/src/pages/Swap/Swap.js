@@ -112,9 +112,9 @@ export default function Swap() {
             <button className="input-btn">
               <div className="input-inner-box">
                 <img className="input-logo" src={ETHLogo} alt="Ethereum Logo" />
-                <option className="input-symbol" onChange={(e) => changeToToken(e)} value={fromToken}>
+                <p className="input-symbol" onChange={(e) => changeToToken(e)} value={fromToken}>
                   {tokensJson[0].symbol}
-                </option>
+                </p>
               </div>
             </button>
           </div>
