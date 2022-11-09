@@ -33,6 +33,7 @@ export default function Swap() {
 
   useEffect(() => {
     getBalance();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const myAddress = account.address;
@@ -52,7 +53,7 @@ export default function Swap() {
       const provider = new ethers.providers.JsonRpcProvider(
         "https://maximum-palpable-gas.arbitrum-mainnet.discover.quiknode.pro/1cbe8b0f58e7c2075bbaab1be8cec079519a846f/"
       );
-      const balance = await provider.getBalance("0x2eAA7327e9B5Ff46bc2B7452acE9e44A1528eb84", "latest");
+      const balance = await provider.getBalance(account.address, "latest");
       setBalance(balance.toString());
     })();
   }
