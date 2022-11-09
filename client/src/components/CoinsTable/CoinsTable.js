@@ -160,7 +160,8 @@ const CoinsTable = () => {
         </TableContainer>
         <Pagination
           className="Pagination"
-          count={(handleSearch()?.length / 10).toFixed(0)}
+          // count={(handleSearch()?.length / 10).toFixed(0)}
+          count={25}
           style={{
             paddingTop: 15,
             paddingBottom: 15,

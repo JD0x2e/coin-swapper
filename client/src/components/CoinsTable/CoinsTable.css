@@ -77,6 +77,7 @@ SEARCH BAR
   padding-left: 0.75em;
   width: 60%;
   color: var(--wht);
+  font-size: 15px;
 }
 
 .search-bar::placeholder {

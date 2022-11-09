@@ -11,31 +11,40 @@
 }
 
 .modal-box {
-  background-color: #333;
+  background: linear-gradient(45deg, rgb(1, 100, 136), #298a26);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 400px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   padding: 1rem;
   border-radius: 10px;
 }
 
-/* .modal-img {
-  width: 30vw;
-  height: 30vw;
-  object-fit: cover;
-  object-position: center;
-  border: 5px double;
-} */
+.spinner-loading {
+  width: 70px !important;
+  height: 40px !important;
+}
+
+.gradientText._index__spinnerText {
+  display: none !important;
+}
+
+.walletcheck-msg {
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
 
 .modal-button {
-  margin-left: 1rem;
-  padding: 0.5rem;
-  border-radius: 10px;
+  margin-top: 4.5em;
+  padding-left: 0.45em;
+  padding-right: 0.45em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: 4px;
   border: none;
-  background-color: black;
+  background-color: #333;
   color: white;
   cursor: pointer;
 }
@@ -44,8 +53,26 @@
   display: hide !important;
 }
 
-.modal-text {
-  margin-left: 1rem;
-  color: black;
-  font-size: 1.2rem;
+.transaction-container {
+  width: 80%;
+  margin-top: 1em;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0.6em;
+  background-color: rgb(0, 0, 0);
+}
+
+.transaction-title {
+  background-image: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1em;
+}
+
+.transaction-msg a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }

@@ -1,39 +1,28 @@
-:root {
-  --mwht: rgba(255, 255, 255, 0.734);
-  --wht: #fff;
-  --blk: black;
-  --blue: rgba(0, 174, 239, 1);
-  --lblk: rgb(20, 20, 20);
-  --grn: #2fe628;
-  --dgrn: #047b00;
-  --main: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
-  --main2: linear-gradient(45deg, rgb(1, 126, 171), #35b031);
-}
-
 select {
-  width: 65px;
-  height: 30px;
+  height: 50px;
   text-align: center;
   border-radius: 0 10px 10px 0;
   border: none;
   background-color: rgb(33, 33, 33);
   color: white;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0.4em;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 input {
-  height: 30px;
-  width: 169px;
+  height: 50px;
+  width: 70%;
   border-radius: 10px 0 0 10px;
   border: none;
   text-align: left;
   background-color: rgb(33, 33, 33);
   color: white;
-  padding: 10px;
+  padding-left: 15px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 button {
@@ -60,16 +49,122 @@ button {
   margin-right: 10px;
 }
 
+/* Swap */
+
 .swap-container {
-  height: 280px;
-  width: 275px;
+  height: 300px;
+  width: 93%;
   border: 1px solid white;
-  background: var(--main2);
-  border-radius: 5px;
+  background: linear-gradient(45deg, rgb(1, 100, 136), #298a26);
+  border-radius: 10px;
   padding: 1em;
-  margin-top: 3em;
+  margin-top: 2em;
 }
 
+.swap-content-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.swap-content {
+  margin-top: 1em;
+}
+
+/* Input */
+.input-logo {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+}
+
+.input-btn {
+  margin-bottom: 0 !important;
+  width: 30%;
+  height: 50px;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.input-inner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Output */
+.output-logo {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
+
+.output-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+  position: relative;
+}
+
+.output-btn {
+  margin-bottom: 0 !important;
+  width: 35%;
+  height: 50px;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.output-inner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 7.5px;
+}
+
+/* Dropdown */
+
+.dropdown-content {
+  width: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  z-index: 1;
+  right: 0;
+  top: 42px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.dropdown-list {
+  width: 70%;
+  margin-top: 0.2em !important;
+  margin-bottom: 0 !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border: none;
+}
+
+/* Buttons */
 .button-containers {
   display: flex;
   flex-direction: column;
@@ -77,7 +172,7 @@ button {
 }
 
 .swap-btn {
-  width: 110px;
+  width: 50%;
   height: 40px;
   text-align: center;
   border-radius: 10px;
@@ -85,19 +180,33 @@ button {
   background-color: #333;
   color: white;
   cursor: pointer;
+  font-size: 15px;
 }
 
-.coversion-btn {
+.conversion-btn {
   cursor: pointer;
-  width: 110px;
+  width: 50%;
   height: 40px;
   text-align: center;
   border-radius: 10px;
   border: none;
   background-color: #333;
   color: white;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-size: 15px;
+}
+
+.swap-btn:hover {
+  background-color: rgb(90, 90, 90);
+  border: 1px solid whitesmoke;
+  color: black;
+}
+
+.conversion-btn:hover {
+  background-color: rgb(90, 90, 90);
+  border: 1px solid whitesmoke;
+  color: black;
 }
 
 .check-wallet {
