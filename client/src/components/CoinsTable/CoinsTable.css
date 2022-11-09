@@ -63,6 +63,14 @@ div {
   opacity: 1 !important;
 }
 
+.Pagination button {
+  min-width: 23px !important;
+}
+
+.Pagination svg {
+  width: 0.9em;
+}
+
 /*****************
 SEARCH BAR
 *****************/
@@ -82,6 +90,7 @@ SEARCH BAR
   width: 60%;
   color: var(--wht);
   font-size: 15px;
+  text-transform: capitalize;
 }
 
 .search-bar::placeholder {
@@ -103,11 +112,5 @@ SEARCH BAR
   th,
   tr {
     margin-right: 75px !important;
-  }
-
-  .Pagination {
-    padding-left: 15 !important;
-    padding-right: 15 !important;
-    width: 100% !important;
   }
 }
