@@ -126,7 +126,7 @@ export default function Swap() {
             <input
               onChange={(e) => changeValue(e)}
               value={!valueExchanged ? "" : (valueExchanged / valueExchangedDecimals).toFixed(3)}
-              disabled={true}
+              // disabled={true}
               placeholder={"0.0"}
             ></input>
             <button className="output-btn" onClick={handleListShow}>
