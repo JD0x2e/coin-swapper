@@ -137,6 +137,22 @@ select {
   margin-left: -1px;
 }
 
+.input-btn-test {
+  margin-bottom: 0 !important;
+  width: 35%;
+  height: 50px;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid rgb(33, 33, 33);
+  border-left: none;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
 .output-field {
   height: 50px;
   width: 70%;
@@ -155,6 +171,14 @@ select {
 }
 
 .output-inner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5px;
+  font-size: 17px;
+}
+
+.input-inner-box-test {
   display: flex;
   justify-content: center;
   align-items: center;
