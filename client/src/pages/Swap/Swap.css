@@ -1,0 +1,111 @@
+:root {
+  --mwht: rgba(255, 255, 255, 0.734);
+  --wht: #fff;
+  --blk: black;
+  --blue: rgba(0, 174, 239, 1);
+  --lblk: rgb(20, 20, 20);
+  --grn: #2fe628;
+  --dgrn: #047b00;
+  --main: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  --main2: linear-gradient(45deg, rgb(1, 126, 171), #35b031);
+}
+
+select {
+  width: 65px;
+  height: 30px;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+input {
+  height: 30px;
+  width: 169px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  text-align: left;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  margin-bottom: 1em;
+}
+
+.swap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance {
+  background-color: #333;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-top: 2em;
+  display: flex;
+}
+
+.balance-logo {
+  margin-right: 10px;
+}
+
+.swap-container {
+  height: 280px;
+  width: 275px;
+  border: 1px solid white;
+  background: var(--main2);
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 3em;
+}
+
+.button-containers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swap-btn {
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.coversion-btn {
+  cursor: pointer;
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.check-wallet {
+  margin-top: 1.5em;
+  background-color: #333;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0.5em;
+  color: white;
+  cursor: pointer;
+}

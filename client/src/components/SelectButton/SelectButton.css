@@ -1,0 +1,24 @@
+.select-button-container {
+  margin-bottom: 2em;
+}
+
+.select-button-container:hover {
+}
+
+.select-button {
+  border: 1px solid white;
+  border-radius: 20px;
+  background: var(--main);
+  color: var(--blk);
+  padding: 0.5em;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.select-button:hover {
+  border: 1px solid white;
+  background: var(--lblk);
+  background-image: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

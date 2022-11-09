@@ -1,0 +1,63 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --mwht: rgba(255, 255, 255, 0.734);
+  --wht: #fff;
+  --blk: black;
+  --blue: rgba(0, 174, 239, 1);
+  --lblk: rgb(20, 20, 20);
+  --grn: #2fe628;
+  --dgrn: #047b00;
+  --main: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  --main2: linear-gradient(45deg, rgb(1, 126, 171), #35b031);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--wht);
+  background-color: var(--lblk);
+}
+
+.App {
+  height: 100vh;
+}
+
+/*************
+General Elements
+**************/
+
+/*************
+Images
+**************/
+
+/*************
+Buttons / Links
+**************/
+
+/*************
+Typography
+**************/
+
+/*************
+Layout
+**************/
+
+/*************
+Media Queries
+**************/

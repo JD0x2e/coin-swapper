@@ -1,0 +1,42 @@
+[
+  {
+    "chainId": 42161,
+    "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+    "name": "WETH",
+    "symbol": "WETH",
+    "decimals": 18,
+    "logoURI": "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1628852295"
+  },
+  {
+    "chainId": 42161,
+    "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "name": "USD Coin (Arb1)",
+    "symbol": "USDC",
+    "decimals": 6,
+    "logoURI": "https://assets.coingecko.com/coins/images/26536/thumb/Radiant-Logo-200x200.png?1658715865"
+  },
+  {
+    "chainId": 42161,
+    "address": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+    "name": "Tether",
+    "symbol": "USDT",
+    "decimals": 6,
+    "logoURI": "https://assets.coingecko.com/coins/images/325/thumb/tether.png?1667873465"
+  },
+  {
+    "chainId": 42161,
+    "address": "0x0c4681e6c0235179ec3d4f4fc4df3d14fdd96017",
+    "name": "Radiant Capital",
+    "symbol": "RDNT",
+    "decimals": 18,
+    "logoURI": "https://assets.coingecko.com/coins/images/26536/thumb/Radiant-Logo-200x200.png?1658715865"
+  },
+  {
+    "chainId": 42161,
+    "address": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+    "name": "Dai",
+    "symbol": "DAI",
+    "decimals": 18,
+    "logoURI": "https://assets.coingecko.com/coins/images/9956/thumb/4943.png?1636636734"
+  }
+]

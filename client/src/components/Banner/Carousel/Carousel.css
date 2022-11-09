@@ -1,0 +1,30 @@
+.alice-carousel__stage-item {
+  text-align: center;
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.carousel-item {
+  text-decoration: none;
+  color: var(--wht);
+}
+
+.coin-img {
+}
+
+.coin-name {
+  margin-top: 0.5em;
+  text-transform: uppercase;
+  display: block;
+  font-weight: lighter;
+}
+
+.coin-percentage-change {
+  display: block;
+}
+
+.coin-price {
+  font-size: 20px;
+}

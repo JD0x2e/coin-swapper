@@ -1,0 +1,119 @@
+.info-container {
+}
+
+.sidebar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.marketdata-rank {
+  background: var(--main);
+  color: var(--blk);
+  font-size: 13px;
+  border-radius: 0 0 10px 10px;
+  width: 60px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 240px;
+}
+
+.sidebar-img {
+  margin-bottom: 1em;
+  width: 100px;
+}
+
+.sidebar-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.sidebar-symbol {
+  margin-top: 5px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.sidebar-description {
+  width: 90%;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.sidebar-description a {
+  text-decoration: none;
+  background-image: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-description a:hover {
+  cursor: pointer;
+}
+
+.sidebar-lower-container {
+  text-align: left;
+  width: 80%;
+  margin-bottom: 0.5em;
+}
+
+.sidebar-price-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+.sidebar-mc-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  justify-content: space-between;
+}
+
+.current-price {
+  background-image: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2em;
+}
+
+.current-mc {
+  background-image: linear-gradient(45deg, rgba(0, 174, 239, 1), #2fe628);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2em;
+}
+
+.marketdata-price {
+  margin-right: 25px;
+}
+
+.marketdata-mc {
+  margin-right: 30px;
+}
+
+.price-change-pos {
+  color: rgb(12, 180, 12);
+  font-size: 13px;
+}
+
+.price-change-neg {
+  color: red;
+  font-size: 13px;
+}
