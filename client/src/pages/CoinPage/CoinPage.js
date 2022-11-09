@@ -42,9 +42,6 @@ export default function CoinPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const upArrow = "&#x25B2;";
-  // const downArrow = "&#x25BC;";
-
   if (!coin) return <LinearProgress style={{ backgroundColor: "#2fe628" }} />;
 
   return (

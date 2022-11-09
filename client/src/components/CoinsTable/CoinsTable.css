@@ -29,9 +29,7 @@
   white-space: nowrap;
 }
 
-.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled,
-.css-1v2lvtn-MuiPaginationItem-root,
-.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+.Pagination {
   color: white !important;
   opacity: 1 !important;
 }
@@ -57,6 +55,12 @@
 th,
 tr {
   margin-right: 30px !important;
+}
+
+button,
+div {
+  color: white !important;
+  opacity: 1 !important;
 }
 
 /*****************
