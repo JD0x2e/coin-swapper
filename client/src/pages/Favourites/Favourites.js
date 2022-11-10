@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Banner from "../../components/Banner/Banner";
 import axios from "axios";
 import { CoinList } from "../../config/api";
 import { useNavigate } from "react-router-dom";
-import "../CoinsTable/CoinsTable.css";
+import "../../components/CoinsTable/CoinsTable.css";
 import { Pagination } from "@mui/material";
-import Star from "../../images/whitestar.png";
+import NoFillStar from "../../images/nofillstar.png";
+import FillStar from "../../images/fillstar.png";
+import { API_URL } from "../../config/api.js";
+import "../Favourites/Favourites.css";
 
 import {
   Container,
@@ -22,17 +26,39 @@ export function numberWithCommas(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const CoinsTable = () => {
+export default function Favourites() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchBar, setSearchBar] = useState("");
   const [page, setPage] = useState(1);
+  // const [starImg, setStarImg] = useState(NoFillStar);
 
   const navigate = useNavigate();
+
+  const toggleFavourite = async (symbol) => {
+    const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    const res = await axios.get(API);
+    const coinFound = res.data.find((favourite) => favourite.symbol === symbol);
+
+    if (coinFound) {
+      const deleteApi = `${API_URL}/favourites/${coinFound._id}`;
+      const deleteRes = await axios.delete(deleteApi);
+      // setStarImg(FillStar);
+    } else {
+      const postApi = `${API_URL}/favourites/`;
+      const postRes = await axios.post(postApi, { wallet: "0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84", symbol: symbol });
+      // setStarImg(NoFillStar);
+    }
+  };
+
+  console.log();
 
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList());
+    // const API = `http://localhost:3000/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    // const res = await axios.get(API);
+    // const favourites = res.data;
     setCoins(data);
     setLoading(false);
   };
@@ -54,6 +80,7 @@ const CoinsTable = () => {
 
   return (
     <div>
+      <Banner />
       <div className="bottom-container">
         <h3 className="bottom-title">Cryptocurrency Prices by Market Cap</h3>
       </div>
@@ -146,7 +173,6 @@ const CoinsTable = () => {
                             fontWeight: 500,
                             fontSize: "12.5px",
                           }}
-                          onClick={() => navigate(`/coins/${row?.id}`)}
                         >
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
@@ -158,8 +184,8 @@ const CoinsTable = () => {
                         >
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
-                        <TableCell align="center" style={{ color: "white" }}>
-                          <img src={Star} alt="Star" className="star-logo" />
+                        <TableCell align="center" style={{ color: "white" }} onClick={() => toggleFavourite(row.symbol)}>
+                          <img src={NoFillStar} alt="" className="star-logo" />
                         </TableCell>
                       </TableRow>
                     );
@@ -170,7 +196,6 @@ const CoinsTable = () => {
         </TableContainer>
         <Pagination
           className="Pagination"
-          // count={(handleSearch()?.length / 10).toFixed(0)}
           count={25}
           style={{
             paddingTop: 15,
@@ -191,6 +216,4 @@ const CoinsTable = () => {
       </Container>
     </div>
   );
-};
-
-export default CoinsTable;
+}

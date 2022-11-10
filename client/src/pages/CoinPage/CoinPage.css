@@ -1,4 +1,5 @@
-.info-container {
+.coin-page {
+  min-height: calc(100vh - 65px);
 }
 
 .sidebar-container {
@@ -6,6 +7,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 97%;
+  margin: 0 auto;
 }
 
 .marketdata-rank {
@@ -20,6 +23,7 @@
   align-items: center;
   text-align: center;
   margin-left: 240px;
+  margin-bottom: 1em;
 }
 
 .sidebar-img {
@@ -31,11 +35,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 89%;
 }
 
 .sidebar-title {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .sidebar-symbol {
@@ -116,4 +122,104 @@
 .price-change-neg {
   color: red;
   font-size: 13px;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  .sidebar-lower-container {
+    width: 60%;
+  }
+  .sidebar-description {
+    width: 70%;
+  }
+
+  .marketdata-rank {
+    margin-left: 570px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .sidebar-description {
+    width: 50%;
+  }
+  .sidebar-lower-container {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .coin-page {
+    display: flex;
+    min-height: calc(100vh - 65px);
+    width: 100% !important;
+  }
+
+  .hr {
+    display: none !important;
+  }
+
+  .vl {
+    border-left: 1px solid white;
+    min-height: calc(100vh - 65px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-container {
+    width: 30%;
+  }
+
+  .marketdata-rank {
+    margin-left: 1500px !important;
+    margin-bottom: 6em;
+    width: 85px;
+    height: 30px;
+  }
+
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 65px);
+
+    min-width: 70%;
+  }
+
+  .sidebar-description {
+    margin-top: 1.25em;
+    width: 85% !important;
+    font-size: 20px;
+  }
+
+  .sidebar-heading {
+    width: 90%;
+    display: block;
+    text-align: center;
+  }
+
+  .sidebar-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 35px;
+  }
+
+  .sidebar-img {
+    width: 140px;
+    margin-bottom: 0.8em;
+  }
+
+  .sidebar-lower-container {
+    width: 70%;
+  }
+}
+/* Laptop Large */
+@media screen and (min-width: 1440px) {
+  .marketdata-rank {
+    margin-left: 2100px !important;
+  }
 }

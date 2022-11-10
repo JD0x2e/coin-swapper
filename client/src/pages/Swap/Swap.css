@@ -15,7 +15,7 @@ select {
   flex-direction: column;
   align-items: center;
   background-color: rgb(27, 27, 27);
-  height: 100vh;
+  min-height: calc(100vh - 65px);
 }
 
 .balance {
@@ -268,4 +268,59 @@ select {
   padding: 0.5em;
   color: white;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .balance {
+    padding: 0.75em;
+    font-size: 18px;
+  }
+  .balance-logo {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  .swap-container {
+    width: 80%;
+  }
+
+  .conversion-btn,
+  .swap-btn {
+    width: 40%;
+  }
+  .transaction-container {
+    margin-top: 2em !important;
+    width: 65% !important;
+  }
+  .dropdown-content {
+    width: 35%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .swap-container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .swap-container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .swap-container {
+    width: 30%;
+    height: 40% !important;
+  }
+  .swap {
+    height: 50%;
+  }
+  .conversion-btn,
+  .swap-btn {
+    width: 50%;
+  }
+  .button-containers {
+    margin-top: 1em;
+  }
 }

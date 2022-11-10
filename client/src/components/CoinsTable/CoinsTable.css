@@ -114,3 +114,21 @@ SEARCH BAR
     margin-right: 75px !important;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .star-logo {
+    margin-left: 12.5px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .star-logo {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .star-logo {
+    margin-left: 55px;
+  }
+}

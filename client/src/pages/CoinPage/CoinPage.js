@@ -45,7 +45,7 @@ export default function CoinPage() {
   if (!coin) return <LinearProgress style={{ backgroundColor: "#2fe628" }} />;
 
   return (
-    <>
+    <div className="coin-page">
       <div className="info-container">
         <div className="sidebar-container">
           <span>
@@ -86,11 +86,12 @@ export default function CoinPage() {
             </div>
           </div>
         </div>
-        <hr />
+        <hr className="hr" />
       </div>
+      <div className="vl"></div>
       <div className="chart-container">
         <CoinInfo coin={coin} />
       </div>
-    </>
+    </div>
   );
 }

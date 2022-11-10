@@ -40,13 +40,14 @@ Sidebar
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 34px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
   background: var(--wht);
+  height: 20px !important;
+  width: 3px !important;
 }
 
 /*
@@ -101,6 +102,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @media screen and (min-width: 375px) {
   .Menu {
     width: 320px !important;
+  }
+
+  .bm-menu {
+    font-size: 1.3em;
+  }
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  .Menu {
+    width: 450px !important;
   }
 
   .bm-menu {
