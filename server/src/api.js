@@ -59,7 +59,6 @@ app.delete("/.netlify/functions/api/favourites/:id", async (req, res) => {
   }
 });
 
-// old way of starting the server
 // app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
 
 // new Netlify way to start the server
