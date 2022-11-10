@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Header/Header.css";
 import Sidebar from "./Sidebar/Sidebar";
-import CSLogo from "../../images/blockchain2.png";
+import CSLogo from "../../images/CSLogo2.png";
 import { ConnectKitButton } from "connectkit";
 
 import styled from "styled-components";

@@ -1,5 +1,6 @@
 .banner-container {
   background-image: url(../../images/banner2.jpeg);
+
   background-position: center;
   background-size: cover;
   height: 350px;

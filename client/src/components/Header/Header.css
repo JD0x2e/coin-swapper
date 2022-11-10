@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #111;
 }
 
 .header-title {
@@ -20,7 +21,7 @@
 }
 
 .cs-logo {
-  width: 45px;
+  width: 40px;
 }
 
 .header-title a {
