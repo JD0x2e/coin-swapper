@@ -5,8 +5,8 @@ import { CoinList } from "../../config/api";
 import { useNavigate } from "react-router-dom";
 import "../../components/CoinsTable/CoinsTable.css";
 import { Pagination } from "@mui/material";
-import NoFillStar from "../../images/nofillstar.png";
-import FillStar from "../../images/fillstar.png";
+// import NoFillStar from "../../images/nofillstar.png";
+// import FillStar from "../../images/fillstar.png";
 import { API_URL } from "../../config/api.js";
 import "../Favourites/Favourites.css";
 
@@ -31,7 +31,6 @@ export default function Favourites() {
   const [loading, setLoading] = useState(false);
   const [searchBar, setSearchBar] = useState("");
   const [page, setPage] = useState(1);
-  // const [starImg, setStarImg] = useState(NoFillStar);
 
   const navigate = useNavigate();
 
@@ -43,15 +42,11 @@ export default function Favourites() {
     if (coinFound) {
       const deleteApi = `${API_URL}/favourites/${coinFound._id}`;
       const deleteRes = await axios.delete(deleteApi);
-      // setStarImg(FillStar);
     } else {
       const postApi = `${API_URL}/favourites/`;
       const postRes = await axios.post(postApi, { wallet: "0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84", symbol: symbol });
-      // setStarImg(NoFillStar);
     }
   };
-
-  console.log();
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -185,7 +180,7 @@ export default function Favourites() {
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
                         <TableCell align="center" style={{ color: "white" }} onClick={() => toggleFavourite(row.symbol)}>
-                          <img src={NoFillStar} alt="" className="star-logo" />
+                          <img src={""} alt="" className="star-logo" />
                         </TableCell>
                       </TableRow>
                     );
