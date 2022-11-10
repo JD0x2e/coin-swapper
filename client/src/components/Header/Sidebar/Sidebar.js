@@ -1,7 +1,7 @@
 import React from "react";
 import { stack as Menu } from "react-burger-menu";
 import "./Sidebar.css";
-import CSLogo from "../../../images/blockchain2.png";
+import CSLogo from "../../../images/CSLogo2.png";
 
 export default function Sidebar() {
   return (

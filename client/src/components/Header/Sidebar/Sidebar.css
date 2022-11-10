@@ -54,6 +54,7 @@ Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
 .CSLogo {
+  width: 50px;
   margin-bottom: 2em;
 }
 
