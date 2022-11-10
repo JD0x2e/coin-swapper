@@ -7,6 +7,7 @@ import "../../components/CoinsTable/CoinsTable.css";
 import { Pagination } from "@mui/material";
 // import NoFillStar from "../../images/nofillstar.png";
 // import FillStar from "../../images/fillstar.png";
+import Star from "../../images/nofillstar.png";
 import { API_URL } from "../../config/api.js";
 import "../Favourites/Favourites.css";
 
@@ -180,7 +181,7 @@ export default function Favourites() {
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
                         <TableCell align="center" style={{ color: "white" }} onClick={() => toggleFavourite(row.symbol)}>
-                          <img src={""} alt="" className="star-logo" />
+                          <img src={Star} alt="" className="star-logo" />
                         </TableCell>
                       </TableRow>
                     );
