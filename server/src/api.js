@@ -14,8 +14,6 @@ app.use(cors());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
-// const PORT = process.env.PORT || 8080;
-
 mongoose.connect(process.env.DATABASE_URL);
 
 app.get("/.netlify/functions/api", (req, res) => {

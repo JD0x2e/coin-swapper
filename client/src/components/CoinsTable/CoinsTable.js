@@ -4,7 +4,7 @@ import { CoinList } from "../../config/api";
 import { useNavigate } from "react-router-dom";
 import "../CoinsTable/CoinsTable.css";
 import { Pagination } from "@mui/material";
-import Star from "../../images/whitestar.png";
+import { API_URL } from "../../config/api.js";
 
 import {
   Container,
@@ -29,6 +29,20 @@ const CoinsTable = () => {
   const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
+
+  const toggleFavourite = async (symbol) => {
+    const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    const res = await axios.get(API);
+    const coinFound = res.data.find((favourite) => favourite.symbol === symbol);
+
+    if (coinFound) {
+      const deleteApi = `${API_URL}/favourites/${coinFound._id}`;
+      const deleteRes = await axios.delete(deleteApi);
+    } else {
+      const postApi = `${API_URL}/favourites/`;
+      const postRes = await axios.post(postApi, { wallet: "0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84", symbol: symbol });
+    }
+  };
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -158,8 +172,8 @@ const CoinsTable = () => {
                         >
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
-                        <TableCell align="center" style={{ color: "white" }}>
-                          <img src={Star} alt="Star" className="star-logo" />
+                        <TableCell align="right" style={{ color: "white" }}>
+                          <input type="checkbox" className="native-hidden" onClick={() => toggleFavourite(row.symbol)} />
                         </TableCell>
                       </TableRow>
                     );

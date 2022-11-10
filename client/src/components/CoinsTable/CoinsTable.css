@@ -48,9 +48,20 @@
   font-size: 12.5px;
 }
 
-.star-logo {
+input[type="checkbox"] {
+  content: url("../../images/nofillstar.png");
+  width: 20px;
   height: 20px;
+}
+input[type="checkbox"]:checked {
+  content: url("../../images/fillstar.png");
+}
+.native-hidden {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 th,
@@ -113,23 +124,5 @@ SEARCH BAR
   th,
   tr {
     margin-right: 75px !important;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .star-logo {
-    margin-left: 12.5px;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .star-logo {
-    margin-left: 30px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .star-logo {
-    margin-left: 55px;
   }
 }

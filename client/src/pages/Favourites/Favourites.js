@@ -5,9 +5,6 @@ import { CoinList } from "../../config/api";
 import { useNavigate } from "react-router-dom";
 import "../../components/CoinsTable/CoinsTable.css";
 import { Pagination } from "@mui/material";
-// import NoFillStar from "../../images/nofillstar.png";
-// import FillStar from "../../images/fillstar.png";
-import Star from "../../images/nofillstar.png";
 import { API_URL } from "../../config/api.js";
 import "../Favourites/Favourites.css";
 
@@ -52,9 +49,9 @@ export default function Favourites() {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList());
-    // const API = `http://localhost:3000/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    // const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
     // const res = await axios.get(API);
-    // const favourites = res.data;
+    // setCoins(res);
     setCoins(data);
     setLoading(false);
   };
@@ -69,6 +66,13 @@ export default function Favourites() {
       (coin) => coin.name.toLowerCase().includes(searchBar) || coin.symbol.toLowerCase().includes(searchBar)
     );
   };
+
+  // for favourites
+  // const handleSearch = () => {
+  //   return coins.filter(
+  //     (coin) => coin.name.toLowerCase().includes(searchBar) || coin.symbol.toLowerCase().includes(searchBar)
+  //   );
+  // };
 
   useEffect(() => {
     fetchCoins();
@@ -180,8 +184,8 @@ export default function Favourites() {
                         >
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
-                        <TableCell align="center" style={{ color: "white" }}>
-                          <img src={Star} alt="" className="star-logo" onClick={() => toggleFavourite(row.symbol)} />
+                        <TableCell align="right" style={{ color: "white" }}>
+                          <input type="checkbox" className="native-hidden" onClick={() => toggleFavourite(row.symbol)} />
                         </TableCell>
                       </TableRow>
                     );
