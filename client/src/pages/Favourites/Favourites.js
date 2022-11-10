@@ -180,8 +180,8 @@ export default function Favourites() {
                         >
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
-                        <TableCell align="center" style={{ color: "white" }} onClick={() => toggleFavourite(row.symbol)}>
-                          <img src={Star} alt="" className="star-logo" />
+                        <TableCell align="center" style={{ color: "white" }}>
+                          <img src={Star} alt="" className="star-logo" onClick={() => toggleFavourite(row.symbol)} />
                         </TableCell>
                       </TableRow>
                     );

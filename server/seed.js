@@ -11,6 +11,12 @@ async function seed() {
     symbol: "BTC",
   });
 
+  await Favourite.create({
+    name: "Ethereum",
+    price: "$10,000",
+    symbol: "ETH",
+  });
+
   console.log("Favourite coin added!");
 }
 
