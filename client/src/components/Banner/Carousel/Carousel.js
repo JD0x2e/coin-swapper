@@ -5,6 +5,7 @@ import { TrendingCoins } from "../../../config/api";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "../Carousel/Carousel.css";
+// import RDNTCoin from "../../../config/tokensArb.json";
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -12,6 +13,7 @@ export function numberWithCommas(x) {
 
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
+  // const [RDNT, setRDNT] = useState([]);
 
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins());
@@ -20,7 +22,19 @@ const Carousel = () => {
 
   useEffect(() => {
     fetchTrendingCoins();
+    // getData();
   }, []);
+
+  // Radiant Capital coin
+
+  // const getData = async () => {
+  //   const API = `https://api.dexscreener.com/latest/dex/tokens/0x24704aff49645d32655a76df6d407e02d146dafc,0x82aF49447D8a07e3bd95BD0d56f35241523fBab1`;
+  //   const res = await axios.get(API);
+  //   setRDNT(res.data.pairs[18]);
+  // };
+
+  // console.log(RDNT.priceChange.h24);
+  //  <img className="coin-img" src={RDNTCoin[3]?.image} alt={RDNTCoin[3]?.name} />
 
   const items = trending.map((coin) => {
     let profit = coin?.price_change_percentage_24h >= 0;

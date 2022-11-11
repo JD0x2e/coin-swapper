@@ -126,3 +126,15 @@ SEARCH BAR
     margin-right: 75px !important;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .search-bar {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .search-bar {
+    width: 40%;
+  }
+}

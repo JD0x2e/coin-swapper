@@ -63,7 +63,7 @@ export default function CoinPage() {
                 <p className="current-price">Current Price: &nbsp;</p>
                 <p>
                   {"$"}
-                  {numberWithCommas(coin?.market_data?.current_price.usd)}
+                  {numberWithCommas(coin?.market_data?.current_price.usd.toFixed(2))}
                 </p>
               </div>
               <p className={`${parseFloat(priceChange) > 0 ? "price-change-pos" : "price-change-neg"}`}>
