@@ -47,6 +47,15 @@ const CoinsTable = () => {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList());
+    const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    const res = await axios.get(API);
+    for (let i = 0; i < res.data.length; i++) {
+      for (let k = 0; k < data.length; k++) {
+        if (res.data[i].symbol === data[k].symbol) {
+          data[k].favourite = true;
+        }
+      }
+    }
     setCoins(data);
     setLoading(false);
   };
@@ -104,6 +113,7 @@ const CoinsTable = () => {
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
+                    const checkedVar = row.favourite ? true : false;
                     return (
                       <TableRow className="row" key={row.name}>
                         <TableCell
@@ -173,7 +183,12 @@ const CoinsTable = () => {
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
                         <TableCell align="right" style={{ color: "white" }}>
-                          <input type="checkbox" className="native-hidden" onClick={() => toggleFavourite(row.symbol)} />
+                          <input
+                            type="checkbox"
+                            className="native-hidden"
+                            onClick={() => toggleFavourite(row.symbol)}
+                            defaultChecked={checkedVar}
+                          />
                         </TableCell>
                       </TableRow>
                     );
@@ -184,8 +199,7 @@ const CoinsTable = () => {
         </TableContainer>
         <Pagination
           className="Pagination"
-          // count={(handleSearch()?.length / 10).toFixed(0)}
-          count={25}
+          count={coins.length / 10}
           style={{
             paddingTop: 15,
             paddingBottom: 15,

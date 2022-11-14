@@ -49,12 +49,21 @@ export default function Favourites() {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList());
-    // const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
-    // const res = await axios.get(API);
-    // setCoins(res);
-    setCoins(data);
+    const API = `${API_URL}/favourites/${"0x2eaa7327e9b5ff46bc2b7452ace9e44a1528eb84"}`;
+    const res = await axios.get(API);
+    const favs = [];
+    for (let i = 0; i < res.data.length; i++) {
+      for (let k = 0; k < data.length; k++) {
+        if (res.data[i].symbol === data[k].symbol) {
+          favs.push(data[k]);
+        }
+      }
+    }
+    setCoins(favs);
     setLoading(false);
   };
+
+  console.log(coins);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -66,13 +75,6 @@ export default function Favourites() {
       (coin) => coin.name.toLowerCase().includes(searchBar) || coin.symbol.toLowerCase().includes(searchBar)
     );
   };
-
-  // for favourites
-  // const handleSearch = () => {
-  //   return coins.filter(
-  //     (coin) => coin.name.toLowerCase().includes(searchBar) || coin.symbol.toLowerCase().includes(searchBar)
-  //   );
-  // };
 
   useEffect(() => {
     fetchCoins();
@@ -185,7 +187,12 @@ export default function Favourites() {
                           ${numberWithCommas(row.market_cap.toString().slice(0, -6))}M
                         </TableCell>
                         <TableCell align="right" style={{ color: "white" }}>
-                          <input type="checkbox" className="native-hidden" onClick={() => toggleFavourite(row.symbol)} />
+                          <input
+                            type="checkbox"
+                            defaultChecked={true}
+                            className="native-hidden"
+                            onClick={() => toggleFavourite(row.symbol)}
+                          />
                         </TableCell>
                       </TableRow>
                     );
@@ -194,25 +201,27 @@ export default function Favourites() {
             </Table>
           )}
         </TableContainer>
-        <Pagination
-          className="Pagination"
-          count={25}
-          style={{
-            paddingTop: 15,
-            paddingBottom: 15,
-            paddingLeft: 5,
-            paddingRight: 5,
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            color: "#fff",
-          }}
-          classes={Pagination}
-          onChange={(_, value) => {
-            setPage(value);
-            window.scroll(0, 450);
-          }}
-        />
+        {coins.length > 10 && (
+          <Pagination
+            className="Pagination"
+            count={Math.ceil(coins.length / 10)}
+            style={{
+              paddingTop: 15,
+              paddingBottom: 15,
+              paddingLeft: 5,
+              paddingRight: 5,
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              color: "#fff",
+            }}
+            classes={Pagination}
+            onChange={(_, value) => {
+              setPage(value);
+              window.scroll(0, 450);
+            }}
+          />
+        )}
       </Container>
     </div>
   );
