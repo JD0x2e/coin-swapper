@@ -15,7 +15,6 @@ async function seed() {
     name: "Ethereum",
     price: "$10,000",
     symbol: "ETH",
-    //
   });
 
   console.log("Favourite coin added!");

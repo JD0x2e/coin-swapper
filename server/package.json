@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "start": "C:/Users/jackd/projects/coin-swapper/server/node_modules/.bin/netlify-lambda serve src",
     "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "keywords": [],
