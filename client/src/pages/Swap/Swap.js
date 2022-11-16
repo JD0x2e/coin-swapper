@@ -34,8 +34,8 @@ export default function Swap() {
 
   useEffect(() => {
     getBalance();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+  }, [getBalance]);
 
   const myAddress = account.address;
 
@@ -48,11 +48,14 @@ export default function Swap() {
     },
   });
 
+  const ArbiAPI = process.env.REACT_APP_QUIKNODE_ID
+  
   async function getBalance() {
     const ethers = require("ethers");
+
     (async () => {
       const provider = new ethers.providers.JsonRpcProvider(
-        "https://maximum-palpable-gas.arbitrum-mainnet.discover.quiknode.pro/1cbe8b0f58e7c2075bbaab1be8cec079519a846f/"
+        `https://maximum-palpable-gas.arbitrum-mainnet.discover.quiknode.pro/${ArbiAPI}/`
       );
       const balance = await provider.getBalance(account.address, "latest");
       setBalance(balance.toString());

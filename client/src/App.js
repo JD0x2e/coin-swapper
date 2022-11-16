@@ -7,13 +7,14 @@ import Favourites from "./pages/Favourites/Favourites";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createClient, WagmiConfig, chain } from "wagmi";
 import { ConnectKitProvider, getDefaultClient } from "connectkit";
+
 const alchemyId = process.env.ALCHEMY_ID;
 
 const client = createClient(
   getDefaultClient({
     appName: "Coinswapper",
     alchemyId,
-    chains: [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+    chains: [chain.arbitrum],
   })
 );
 export default function App() {
