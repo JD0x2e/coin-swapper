@@ -188,7 +188,7 @@ select {
 
 /* Dropdown */
 
-.dropdown-content {
+/* .dropdown-content {
   width: 45%;
   position: absolute;
   display: flex;
@@ -213,6 +213,60 @@ select {
   background-color: rgb(33, 33, 33);
   color: white;
   border: none;
+} */
+
+.dropdown-content {
+  width: 45%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  z-index: 1;
+  right: 0;
+  top: 43px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.dropdown-content2 {
+  width: 45%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  z-index: 1;
+  right: 30px;
+  top: 256px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.dropdown-list {
+  width: 60%;
+  font-size: 15px;
+  margin-top: 0.75em !important;
+  margin-bottom: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border: none;
+}
+
+.dropdown-list2 {
+  width: 60%;
+  font-size: 15px;
+  margin-top: 0.75em !important;
+  margin-bottom: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border: none;
 }
 
 /* Buttons */
@@ -222,20 +276,38 @@ select {
   align-items: center;
 }
 
+.approve-btn {
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.approve-btn:hover {
+  background-color: rgb(90, 90, 90);
+  border: 1px solid whitesmoke;
+  color: black;
+}
+
 .swap-btn {
   width: 50%;
   height: 40px;
   text-align: center;
   border-radius: 10px;
   border: none;
-  background-color: #333;
+  background-color: rgba(83, 83, 83, 0.781);
   color: white;
-  cursor: pointer;
   font-size: 15px;
 }
 
-.conversion-btn {
-  cursor: pointer;
+.swap-btn-approved {
   width: 50%;
   height: 40px;
   text-align: center;
@@ -243,18 +315,11 @@ select {
   border: none;
   background-color: #333;
   color: white;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+  cursor: pointer;
   font-size: 15px;
 }
 
-.swap-btn:hover {
-  background-color: rgb(90, 90, 90);
-  border: 1px solid whitesmoke;
-  color: black;
-}
-
-.conversion-btn:hover {
+.swap-btn-approved:hover {
   background-color: rgb(90, 90, 90);
   border: 1px solid whitesmoke;
   color: black;
@@ -283,7 +348,7 @@ select {
     width: 80%;
   }
 
-  .conversion-btn,
+  .approve-btn,
   .swap-btn {
     width: 40%;
   }
@@ -292,6 +357,9 @@ select {
     width: 65% !important;
   }
   .dropdown-content {
+    width: 35%;
+  }
+  .dropdown-content2 {
     width: 35%;
   }
 }
@@ -316,7 +384,7 @@ select {
   .swap {
     height: 50%;
   }
-  .conversion-btn,
+  .approve-btn,
   .swap-btn {
     width: 50%;
   }

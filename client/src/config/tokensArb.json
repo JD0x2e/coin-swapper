@@ -1,5 +1,12 @@
 [
   {
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "decimals": 18,
+    "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "logoURI": "http://localhost:3000/tokenimg/eth.png"
+  },
+  {
     "chainId": 42161,
     "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
     "name": "WETH",

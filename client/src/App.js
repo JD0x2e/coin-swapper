@@ -4,6 +4,7 @@ import CoinPage from "./pages/CoinPage/CoinPage";
 import Home from "./pages/Home/Home";
 import Swap from "./pages/Swap/Swap";
 import Favourites from "./pages/Favourites/Favourites";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createClient, WagmiConfig, chain } from "wagmi";
 import { ConnectKitProvider, getDefaultClient } from "connectkit";

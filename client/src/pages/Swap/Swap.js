@@ -3,28 +3,32 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useAccount, useSendTransaction } from "wagmi";
 import tokensJsonArb from "../../config/tokensArb.json";
-import tokensJson from "../../config/tokens.json";
 import ETHLogo from "../../images/tokenimg/eth.png";
 import "../../components/SwapModal/SwapModal.css";
 import Cog from "../../images/cog-wheel.png";
 import { Spinner } from "loading-animations-react";
 import ARBLogo from "../../images/logo-Arbiscan.svg";
+import {ethers} from "ethers"
+
 
 export default function Swap() {
-  const [fromToken] = useState("0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE");
+  const ArbiAPI = process.env.REACT_APP_QUIKNODE_ID
+  const [fromToken, setFromToken] = useState("");
   const [toToken, setToToken] = useState("");
-  const [value, setValue] = useState("10000000000000000");
+  const [value, setValue] = useState("1000000000000000000");
   const [valueExchanged, setValueExchanged] = useState("");
   const [valueExchangedDecimals, setValueExchangedDecimals] = useState(1e18);
   const [to, setTo] = useState("");
   const [txData, setTxData] = useState("");
   const [balance, setBalance] = useState("");
   const [listShow, setListShow] = useState(false);
+  const [listShow2, setListShow2] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [swapApproved, setSwapApproved] = useState(false);
 
-  const changeModal = () => {
-    setModalShow(!modalShow);
-  };
+  useEffect(() => {
+    getBalance();
+  }, [getBalance]);
 
   const account = useAccount({
     onConnect({ address, connector, isReconnected }) {
@@ -32,27 +36,55 @@ export default function Swap() {
     },
   });
 
-  useEffect(() => {
-    getBalance();
-
-  }, [getBalance]);
-
-  const myAddress = account.address;
+  const walletAddress = account.address;
 
   const { data, isLoading, isSuccess, sendTransaction } = useSendTransaction({
     request: {
-      from: myAddress,
+      from: String(walletAddress),
       to: String(to),
       data: String(txData),
-      value: String(value),
+      value: 0,
     },
   });
 
-  const ArbiAPI = process.env.REACT_APP_QUIKNODE_ID
+  async function getConversion() {
+    const tx = await axios.get(
+      `https://api.1inch.io/v5.0/42161/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${value}&fromAddress=${walletAddress}&slippage=1&disableEstimate=false`);
+      setValueExchangedDecimals(Number(`1E${tx.data.toToken.decimals}`));
+      setValueExchanged(tx.data.toTokenAmount);
+  }
+
+
+  async function get1inchSwap() {
+    const tx = await axios.get(
+      `https://api.1inch.io/v5.0/42161/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${value}&fromAddress=${walletAddress}&slippage=1&disableEstimate=false`
+    );
+    console.log(tx.data);
+    setTo(tx.data.tx.to);
+    setTxData(tx.data.tx.data);
+  }
+
+  window.Approve = async () => { 
+    getConversion()
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send('eth_requestAccounts', []);
+    const signer = provider.getSigner();
+
+    const inputTokenContract = `${fromToken}`;
+    const oneInchContract = '0x1111111254EEB25477B68fb85Ed929f73A960582'
   
+    const erc20Abi = ["function approve(address spender, uint256 amount) public returns (bool)"];
+    const inputToken = new ethers.Contract(inputTokenContract, erc20Abi, signer);
+    const inputAmount = value
+    const weiAmount = ethers.utils.parseEther(inputAmount)
+    const tx1 = await inputToken.approve(oneInchContract, weiAmount);
+    await tx1.wait();
+    get1inchSwap()
+    setSwapApproved(true)
+  }
+
   async function getBalance() {
     const ethers = require("ethers");
-
     (async () => {
       const provider = new ethers.providers.JsonRpcProvider(
         `https://maximum-palpable-gas.arbitrum-mainnet.discover.quiknode.pro/${ArbiAPI}/`
@@ -72,24 +104,26 @@ export default function Swap() {
     setValueExchanged("");
   }
 
-  async function get1inchSwap() {
-    const tx = await axios.get(
-      `https://api.1inch.io/v4.0/42161/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${value}&fromAddress=${myAddress}&slippage=1`
-    );
-    console.log(tx.data);
-    setTo(tx.data.tx.to);
-    setTxData(tx.data.tx.data);
-    setValueExchangedDecimals(Number(`1E${tx.data.toToken.decimals}`));
-    setValueExchanged(tx.data.toTokenAmount);
-  }
-
   const handleListShow = () => {
     setListShow(!listShow);
+  };
+
+  const handleListShow2 = () => {
+    setListShow2(!listShow2);
   };
 
   const handleToToken = (token) => {
     setToToken(token);
   };
+
+  const handleFromToken = (token) => {
+    setFromToken(token);
+  };
+
+  const changeModal = () => {
+    setModalShow(!modalShow);
+  };
+
 
   return (
     <div className="swap">
@@ -113,14 +147,31 @@ export default function Swap() {
               max={(balance.balance / 1e18).toFixed(3)}
               placeholder={"0.0"}
             ></input>
-            <button className="input-btn">
+            <button className="input-btn" onClick={handleListShow2}>
               <div className="input-inner-box">
-                <img className="input-logo" src={ETHLogo} alt="Ethereum Logo" />
-                <p className="input-symbol" onChange={(e) => changeToToken(e)} value={fromToken}>
-                  {tokensJson[0].symbol}
-                </p>
+                {fromToken === "" && "Tokens"}
+                {fromToken !== "" && (
+                  <img 
+                    src={tokensJsonArb.find((token) => token.address === fromToken).logoURI}
+                    alt=""
+                    className="input-logo"
+                    onChange={(e) => changeToToken(e)} value={fromToken}
+                  />
+                )} 
+                {fromToken !== "" && tokensJsonArb.find((token) => token.address === fromToken).symbol}
               </div>
             </button>
+            <span className="dropdown-content2">
+              {listShow2 &&
+                tokensJsonArb.map((token, idx) => {
+                  return (
+                    <button className="dropdown-list2" key={idx} onClick={() => handleFromToken(token.address)}>
+                      <img src={token.logoURI} alt="" />
+                      <span className="token-symbol">{token.symbol}</span>
+                    </button>
+                  );
+                })}
+            </span>
           </div>
 
           <div className="output-box">
@@ -128,12 +179,12 @@ export default function Swap() {
               className="output-field"
               onChange={(e) => changeValue(e)}
               value={!valueExchanged ? "" : (valueExchanged / valueExchangedDecimals).toFixed(3)}
-              // disabled={true}
               placeholder={"0.0"}
+              disabled={true}
             ></input>
-            <button className="output-btn" onClick={handleListShow}>
+          <button className="output-btn" onClick={handleListShow}>
               <div className="output-inner-box">
-                {toToken === "" && "Select Token"}
+                {toToken === "" && "Tokens"}
                 {toToken !== "" && (
                   <img
                     src={tokensJsonArb.find((token) => token.address === toToken).logoURI}
@@ -144,25 +195,23 @@ export default function Swap() {
                 {toToken !== "" && tokensJsonArb.find((token) => token.address === toToken).symbol}
               </div>
             </button>
-            <div className="dropdown-content">
+            <span className="dropdown-content">
               {listShow &&
                 tokensJsonArb.map((token, idx) => {
                   return (
                     <button className="dropdown-list" key={idx} onClick={() => handleToToken(token.address)}>
                       <img src={token.logoURI} alt="" />
-                      {token.symbol}
+                      <span className="token-symbol">{token.symbol}</span>
                     </button>
                   );
                 })}
-            </div>
+            </span>
           </div>
-
           <div className="button-containers">
-            <button className="conversion-btn" onClick={get1inchSwap}>
-              Get Conversion
-            </button>
-            <button className="swap-btn" disabled={false} onClick={sendTransaction}>
-              Swap Tokens
+            <button className="approve-btn" onClick={window.Approve}>
+              1 - Approve Tokens</button>
+            <button className={swapApproved !== true ? "swap-btn" : "swap-btn-approved"} disabled={false} onClick={sendTransaction}>
+              2 - Swap Tokens
             </button>
           </div>
         </div>
@@ -190,5 +239,6 @@ export default function Swap() {
         </div>
       )}
     </div>
+    
   );
 }
