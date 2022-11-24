@@ -188,33 +188,6 @@ select {
 
 /* Dropdown */
 
-/* .dropdown-content {
-  width: 45%;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(33, 33, 33);
-  z-index: 1;
-  right: 0;
-  top: 43px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.dropdown-list {
-  width: 60%;
-  font-size: 15px;
-  margin-top: 0.75em !important;
-  margin-bottom: 0 !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(33, 33, 33);
-  color: white;
-  border: none;
-} */
-
 .dropdown-content {
   width: 45%;
   position: absolute;
@@ -290,6 +263,19 @@ select {
   margin-bottom: 1em;
 }
 
+.approve-btn-approved {
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(83, 83, 83, 0.781);
+  color: white;
+  margin-top: 2em;
+  font-size: 15px;
+  pointer-events: none;
+}
+
 .approve-btn:hover {
   background-color: rgb(90, 90, 90);
   border: 1px solid whitesmoke;
@@ -305,6 +291,7 @@ select {
   background-color: rgba(83, 83, 83, 0.781);
   color: white;
   font-size: 15px;
+  pointer-events: none;
 }
 
 .swap-btn-approved {
@@ -316,6 +303,7 @@ select {
   background-color: #333;
   color: white;
   cursor: pointer;
+  margin-top: 0.5em;
   font-size: 15px;
 }
 
