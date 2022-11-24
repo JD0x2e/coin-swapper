@@ -21,7 +21,7 @@ app.get("/.netlify/functions/api", (req, res) => {
   res.json({ Jack: "is great" });
 });
 
-// retrieve a specific wallet's favourite coins
+// retrieve a specific wallets favourite coins
 app.get("/.netlify/functions/api/favourites/:wallet", async (req, res) => {
   try {
     // try and make a call to the database
@@ -49,7 +49,10 @@ app.post("/.netlify/functions/api/favourites", async (req, res) => {
 app.delete("/.netlify/functions/api/favourites/:id", async (req, res) => {
   try {
     const favouriteToDelete = req.params.id;
-    const deletedFavourite = await Favourite.deleteOne({ _id: favouriteToDelete }, req.body);
+    const deletedFavourite = await Favourite.deleteOne(
+      { _id: favouriteToDelete },
+      req.body
+    );
     res.status(200).json(deletedFavourite);
   } catch (err) {
     console.log(err);
